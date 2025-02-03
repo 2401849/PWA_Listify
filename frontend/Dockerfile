@@ -2,7 +2,7 @@ FROM node:22.12.0-slim@sha256:a4b757cd491c7f0b57f57951f35f4e85b7e1ad54dbffca4cf9
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build-only
+RUN npm run build-production
 
 FROM nginx:alpine AS runner
 RUN rm /etc/nginx/conf.d/default.conf
