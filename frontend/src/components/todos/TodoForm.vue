@@ -7,7 +7,7 @@
           v-model="form.title"
           label="Name"
           required
-          :error-messages="validator.title.$errors.map(e => e.$message)"
+          :error-messages="validator.title.$errors.map(e => unref(e.$message))"
         ></v-text-field>
 
         <v-menu
@@ -38,7 +38,7 @@
         <v-textarea
           v-model="form.description"
           label="Description"
-          :error-messages="validator.description.$errors.map(e => e.$message)"
+          :error-messages="validator.title.$errors.map(e => unref(e.$message))"
         ></v-textarea>
 
         <v-btn type="submit">{{ isEdit ? "Update" : "Add" }}</v-btn>
@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, watch } from "vue";
+import { computed, defineComponent, unref, ref, watch } from "vue";
 import { format } from "date-fns";
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
@@ -115,6 +115,7 @@ export default defineComponent({
       formattedDueDate,
       updateDueDate,
       submitForm,
+      unref
     };
   },
 });

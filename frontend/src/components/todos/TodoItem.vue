@@ -14,13 +14,13 @@ export default {
     }
   },
   methods: {
-    openForm(isEdit) {
+    openForm(isEdit: boolean) {
       this.$emit('open-form', { isEdit, item: this.item });
     },
     deleteItem() {
       this.$emit('delete-item', this.item);
     },
-    timeLeft(dueDate) {
+    timeLeft(dueDate: Date) {
       if (!dueDate) return { diff: '', left: 'Expired' };
       if (isToday(dueDate)) return { diff: '', left: 'Expires today' }
       if (isTomorrow(dueDate)) return { diff: '', left: 'Expires tomorrow' };

@@ -5,6 +5,7 @@
   "main": "dist/src/main",
   "scripts": {
     "build": "nest build",
+    "buildncc": "ncc build src/main.ts -m -C -o dist/ --target es2024",
     "start:dev": "nest start --watch",
     "start:prod": "node ."
   },
@@ -35,6 +36,7 @@
     "@types/jest": "^29.5.14",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.10",
+    "@vercel/ncc": "^0.38.3",
     "typescript": "^5.7.3"
   }
 }

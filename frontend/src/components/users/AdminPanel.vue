@@ -13,7 +13,7 @@
     <p class="no-items">No existing users!</p>
   </template>
   <v-dialog v-model="isDialogOpen" max-width="500px">
-    <UserForm v-model="formData.user" @submit="handleSubmit"/>
+    <UserForm v-model="formData!.user" @submit="handleSubmit"/>
   </v-dialog>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     const authStore = useUserAuthStore()
 
     const isDialogOpen = ref(false);
-    const formData = ref<{ user: Users }>({});
+    const formData = ref<{ user: Users } | null>(null);
 
     const users = computed(() => {
       return userStore.users.filter(user => user.username !== authStore.username);

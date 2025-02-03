@@ -52,7 +52,7 @@ export default defineComponent({
   emits: ["update:modelValue", "submit"],
   setup(props, { emit }) {
     const form = ref({
-      _id: props.modelValue._id,
+      _id: props.modelValue?._id,
       name: props.modelValue?.name,
       username: props.modelValue?.username,
       email: props.modelValue?.email,

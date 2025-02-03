@@ -11,7 +11,7 @@ export const useUsersStore = defineStore("users", () => {
     users.value = await userService.getUsers();
   }
 
-  const addUser = async (user: Users) => {
+  const addUser = async (user: CreateUser) => {
     const itemAdded = await userService.addUser(user)
     users.value.push({...itemAdded});
   };
