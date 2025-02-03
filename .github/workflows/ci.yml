@@ -28,7 +28,7 @@ jobs:
         id: meta_backend
         uses: docker/metadata-action@v5.5.1
         with:
-          images: ghcr.io/2401849/PWA_Listify
+          images: ghcr.io/2401849/listify_backend
 
       - name: Build and push Docker Backend image
         id: push_backend
@@ -44,7 +44,7 @@ jobs:
         id: meta_frontend
         uses: docker/metadata-action@v5.5.1
         with:
-          images: ghcr.io/2401849/PWA_Listify
+          images: ghcr.io/2401849/listify_frontend
 
       - name: Build and push Docker Frontend image
         id: push_frontend
